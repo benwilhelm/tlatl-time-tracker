@@ -1,0 +1,22 @@
+{
+  "name": "tlatl-time-tracking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:watch": "jest --watchAll",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "jest": "^28.0.3",
+    "jest-cli": "^28.0.3",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "yargs": "^17.4.1"
+  }
+}
