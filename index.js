@@ -1,34 +1,23 @@
 import yargs from 'yargs';
-import { helloWorld } from './lib.js';
+import { startTimerAction, stopTimerAction } from './lib/actions.js';
 
 const argv = yargs(process.argv.slice(2))
   .scriptName('time-tracker')
   .usage('$0 <cmd> [args]')
   .command(
-    'hello [name] [args]',
-    'Greet a person by name, defaults to the whole world',
-    (yargs) => {
-      yargs.positional('name', {
-        type: 'string',
-        default: 'world',
-      });
-      yargs.option('emphasis', {
-        alias: 'e',
-        describe: 'how much emphasis, 1-5',
-      });
-    },
+    'start',
+    'Start a new timer session',
+    (yargs) => {},
     (argv) => {
-      const exStr = '!'.repeat(+argv.emphasis);
-      const name = `${argv.name}${exStr}`;
-      console.log(helloWorld(name));
+      startTimerAction();
     }
   )
   .command(
-    'goodbye',
-    'A friendly farewell',
+    'stop',
+    'Stops a running timer',
     () => {},
     (argv) => {
-      console.log("g'bye");
+      stopTimerAction();
     }
   )
   .help().argv;
